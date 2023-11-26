@@ -1,9 +1,22 @@
-import { useStep } from "@/context/StepContext";
+'use client'
 
+import { useStep } from "@/context/StepContext";
+import { useState } from "react";
 
 export default function PartySize() {
 
-  const { setPartySize, partySize, increasePartySize, decreasePartySize } = useStep();
+  const { pickPartySize } = useStep();
+
+  const [partySizeSelector, setPartySizeSelector] = useState(5);
+
+  function increasePartySize() {
+    setPartySizeSelector(prev => prev + 1)
+  }
+
+  function decreasePartySize() {
+    if (partySizeSelector === 5) return
+    setPartySizeSelector(prev => prev - 1)
+  }
 
   const partyNumbers = [1,2,3,4]
 
@@ -18,7 +31,7 @@ export default function PartySize() {
           {partyNumbers.map((number) => {
             return (
               <button
-                onClick={() => setPartySize(number)} 
+                onClick={() => pickPartySize(number)} 
                 key={number} 
                 className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white text-center w-16 h-16 rounded-full font-semibold text-2xl'>
                 {number}
@@ -35,8 +48,9 @@ export default function PartySize() {
           </button>
 
           <button 
+            onClick={() => pickPartySize(partySizeSelector)}
             className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-16 h-16 px-16 rounded-full font-semibold text-2xl'>
-            {partySize}
+            {partySizeSelector}
           </button>
 
           <button 

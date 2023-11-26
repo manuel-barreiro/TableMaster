@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[url('/bg.jpeg')] bg-cover`}>
+      <body className={`${inter.className} bg-[url('/bg.jpeg')] bg-cover h-auto`}>
         <StepProvider>
           {children}
         </StepProvider>

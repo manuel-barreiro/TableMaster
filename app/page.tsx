@@ -6,6 +6,7 @@ import { useStep } from '@/context/StepContext';
 import Header from '@/components/Header';
 import ProgressBar from '@/components/ProgressBar';
 import DayPicker from '@/components/DayPicker';
+import PreferenceOfService from '@/components/PreferenceOfService';
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         {step === 0 && <Welcome />}
         {step === 1 && <PartySize />}
         {step === 2 && <DayPicker />}
+        {step === 3 && <PreferenceOfService />}
       </div>
       {step != 0 && <ProgressBar />}
     </main>

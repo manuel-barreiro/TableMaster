@@ -1,8 +1,8 @@
-import { useStep } from '@/context/StepContext';
+import { useApp } from '@/context/AppContext';
 
 export default function Welcome() {
 
-  const { setStep } = useStep();
+  const { setStep } = useApp();
 
   return (
     <div>

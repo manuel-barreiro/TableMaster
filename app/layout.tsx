@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Book your restaurant table online',
 }
 
-import { StepProvider } from '@/context/StepContext';
+import { AppProvider } from '@/context/AppContext';
 
 export default function RootLayout({
   children,
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[url('/bg.jpeg')] bg-cover h-auto mb-10`}>
-        <StepProvider>
+        <AppProvider>
           {children}
-        </StepProvider>
+        </AppProvider>
       </body>
     </html>
   )

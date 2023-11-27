@@ -1,4 +1,8 @@
+import { useApp } from '@/context/AppContext';
+
 export default function PreferenceOfService() {
+  const { pickService } = useApp();
+
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col items-center">
@@ -7,12 +11,14 @@ export default function PreferenceOfService() {
       </div>
 
       <div className="flex flex-col items-center gap-3">
-        <button 
-          className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-full h-16 px-28 rounded-full font-normal text-2xl'>
+        <button
+          onClick={() => pickService('Lunch')} 
+          className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-full py-3 px-28 rounded-full font-normal text-xl'>
           Lunch
         </button>
-        <button 
-          className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-full h-16 px-28 rounded-full font-normal text-2xl'>
+        <button
+          onClick={() => pickService('Dinner')} 
+          className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-full py-3 px-28 rounded-full font-normal text-xl'>
           Dinner
         </button>
 

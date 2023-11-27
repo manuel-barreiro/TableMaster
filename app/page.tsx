@@ -2,16 +2,17 @@
 
 import Welcome from '@/components/Welcome';
 import PartySize from '@/components/PartySize';
-import { useStep } from '@/context/StepContext';
+import { useApp } from '@/context/AppContext';
 import Header from '@/components/Header';
 import ProgressBar from '@/components/ProgressBar';
 import DayPicker from '@/components/DayPicker';
 import PreferenceOfService from '@/components/PreferenceOfService';
+import TimePicker from '@/components/TimePicker';
 
 
 export default function Home() {
 
-  const { step } = useStep();
+  const { step } = useApp();
 
   return (
     <main className='flex flex-col items-center h-auto'>
@@ -21,6 +22,7 @@ export default function Home() {
         {step === 1 && <PartySize />}
         {step === 2 && <DayPicker />}
         {step === 3 && <PreferenceOfService />}
+        {step === 4 && <TimePicker />}
       </div>
       {step != 0 && <ProgressBar />}
     </main>

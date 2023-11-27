@@ -1,11 +1,11 @@
 'use client'
 
-import { useStep } from "@/context/StepContext";
+import { useApp } from "@/context/AppContext";
 import { useState } from "react";
 
 export default function PartySize() {
 
-  const { pickPartySize } = useStep();
+  const { pickPartySize } = useApp();
 
   const [partySizeSelector, setPartySizeSelector] = useState(5);
 

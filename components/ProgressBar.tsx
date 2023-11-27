@@ -1,9 +1,9 @@
-import { useStep } from '@/context/StepContext';
+import { useApp } from '@/context/AppContext';
 import { Progress } from '@/components/ui/progress';
 import { IoArrowBack } from "react-icons/io5";
 
 export default function ProgressBar () {
-  const { step, setStep } = useStep();
+  const { step, setStep } = useApp();
 
   return (
     <div className="flex flex-col gap-3 w-[80%] md:w-[40%]">

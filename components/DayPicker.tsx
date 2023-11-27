@@ -3,13 +3,13 @@
 import * as React from "react"
  
 import { Calendar } from "@/components/ui/calendar"
-import { useStep } from "@/context/StepContext"
+import { useApp } from "@/context/AppContext"
 import { useState } from "react"
 import { addDays } from "date-fns"
 
 export default function DayPicker () {
   const [fecha, setFecha] = useState<Date | undefined>(new Date())
-  const { pickDate } = useStep()
+  const { pickDate } = useApp()
   // Calendar functionality
   const disabledDays = [
     { from: new Date(0, 1, 1), to: addDays(new Date(), -1) }, 

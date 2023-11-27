@@ -17,6 +17,9 @@ type AppContext = {
   service: string
   setService: React.Dispatch<React.SetStateAction<string>>
   pickService: (service: string) => void
+  time: string
+  setTime: React.Dispatch<React.SetStateAction<string>>
+  pickTime: (time: string) => void
 }
 
 const AppContext = createContext({} as AppContext)
@@ -31,8 +34,9 @@ export function AppProvider ({ children }: AppProviderProps): JSX.Element {
   const [partySize, setPartySize] = useState(0);
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [service, setService] = useState('')
+  const [time, setTime] = useState('')
 
-  useEffect(() => {console.log(service)}, [service])
+  useEffect(() => {console.log(time)}, [time])
 
   function pickPartySize(size: number) {
     setPartySize(size)
@@ -48,9 +52,14 @@ export function AppProvider ({ children }: AppProviderProps): JSX.Element {
     setService(service)
     setStep(4)
   }
+
+  function pickTime(time: string) {
+    setTime(time)
+    setStep(5)
+  }
   
   return (
-    <AppContext.Provider value={{ setStep, step, pickPartySize, partySize, date, setDate, pickDate, setService, service, pickService  }}>
+    <AppContext.Provider value={{ setStep, step, pickPartySize, partySize, date, setDate, pickDate, setService, service, pickService, setTime, time, pickTime  }}>
       {children}
     </AppContext.Provider>
   )

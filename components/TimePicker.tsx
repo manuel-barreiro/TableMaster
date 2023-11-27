@@ -3,7 +3,7 @@ import { useApp } from '@/context/AppContext';
 
 export default function TimePicker () {
 
-  const { service } = useApp();
+  const { service, pickTime } = useApp();
 
   const lunchTimes = [
     '12:00',
@@ -30,7 +30,7 @@ export default function TimePicker () {
       {times.map((time, index) => (
         <button
           key={index}
-          // onClick={() => pickTime(time)} 
+          onClick={() => pickTime(time)} 
           className='bg-red-500 hover:bg-red-700 ease-in-out duration-300 text-white flex justify-center items-center w-full py-2 px-16 rounded-full font-normal text-lg'>
           {time}
         </button>

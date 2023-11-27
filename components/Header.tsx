@@ -8,7 +8,7 @@ import { format } from 'date-fns'
 
 
 export default function Header() { 
-  const { setStep, step, partySize, date, service } = useApp();
+  const { setStep, step, partySize, date, service, time } = useApp();
   return(
     <div className='flex flex-col w-full mb-6'>
       <div className='w-full flex justify-between items-center mb-3'>
@@ -31,9 +31,13 @@ export default function Header() {
           <Badge className='cursor-pointer' onClick={() => setStep(2)}>
             {format(date, 'EEE d, MMM').toUpperCase()}
           </Badge>}
-          {step >= 4  && 
+          {step === 4  && 
           <Badge className='cursor-pointer' onClick={() => setStep(3)}>
             {service.toUpperCase()}
+          </Badge>}
+          {step >= 5 &&
+          <Badge className='cursor-pointer' onClick={() => setStep(4)}>
+            {time}
           </Badge>}
         </div>
       }
